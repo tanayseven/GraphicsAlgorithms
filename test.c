@@ -24,7 +24,14 @@
 
 void onDraw(cairo_t *cr)
 {
-	cairo_set_pixel(cr,40,40);
+	set_RGB(0,0,0);
+	set_pixel(cr,40,40);
+	set_RGB(255,0,0);
+	set_pixel(cr,50,50);
+	set_RGB(0,255,0);
+	set_pixel(cr,60,60);
+	set_RGB(0,0,255);
+	set_pixel(cr,70,70);
 }
 
 int main(int argc, char **argv)

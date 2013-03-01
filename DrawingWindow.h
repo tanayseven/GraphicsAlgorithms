@@ -31,6 +31,9 @@
 int width;
 int height;
 
+//RGB variables
+float red, green, blue;
+
 //declare the surface and context
 cairo_surface_t *surface;
 cairo_t *cr_main;
@@ -49,9 +52,12 @@ void setDraw(void *(_draw));
 //sets the main gtk window's width and height
 void window_set_width_height(int _width, int _height);
 
+//sets the RGB value of the context
+void set_RGB(float _red, float _green, float _blue);
+
 //cairo does not have set_pixel function
 //hence defination of set_pixel using rectangle function
-void cairo_set_pixel(cairo_t *cr, int x, int y);
+void set_pixel(cairo_t *cr, int x, int y);
 
 //draw event to draw onto the graphics buffer, automatically called
 static gboolean draw_cb (GtkWidget *widget, cairo_t   *cr, gpointer   data);

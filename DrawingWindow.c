@@ -37,16 +37,24 @@ void window_set_width_height(int _width, int _height)
 
 //cairo does not have set_pixel function
 //hence defination of set_pixel using rectangle function
-void cairo_set_pixel(cairo_t *cr, int x, int y)
+void set_pixel(cairo_t *cr, int x, int y)
 {
+	cairo_set_source_rgb(cr, red, green, blue);
 	cairo_rectangle (cr, x, y, 1, 1);
 	cairo_fill (cr);
+}
+
+//sets the red, green, blue values of the context
+void set_RGB(float _red, float _green, float _blue)
+{
+	red = _red;
+	green = _green;
+	blue = _blue;
 }
 
 //draw event to draw onto the graphics buffer, automatically called
 static gboolean draw_cb (GtkWidget *widget, cairo_t   *cr, gpointer   data)
 {
-  cairo_set_source_rgb(cr, 255, 0, 0);
   (*draw)(cr);  //the on draw which is defined by the user is defined here
   return FALSE;
 }
