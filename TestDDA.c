@@ -20,28 +20,9 @@
  * 
  */
 
-#include "DrawingWindow.h"
+#include "LineDrawing.h"
 #include <math.h>
-#define ROUND(a) ((int) a+0.5)
-void lineDDA(cairo_t *cr, int xA, int yA, int xB, int yB)
-{
-	int dX=xB-xA, dY=yB-yA,steps,k;
-	float xIncrement, yIncrement, x=xA, y=yA;
-	if(abs(dX) > abs(dY))
-		steps = abs(dX);
-	else
-		steps = abs(dY);
-	xIncrement = dX/(float)steps;
-	yIncrement = dY/(float)steps;
-	set_pixel(cr,ROUND(x),ROUND(y));
-	for(k=0;k<steps;k++)
-	{
-		x+=xIncrement;
-		y+=yIncrement;
-		set_pixel(cr,ROUND(x),ROUND(y));
-	}
-}
-void onDraw(cairo_t *cr)
+void onDraw(cairo_t *cr)	//drawing david's star to test DDA algorithm
 {
 	set_RGB(0,0,0);	//set color black
 	

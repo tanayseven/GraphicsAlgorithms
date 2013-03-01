@@ -22,43 +22,8 @@
 
 #include "DrawingWindow.h"
 #include <math.h>
+#ifndef LINE_DRAWING
+#define LINE_DRAWING
 #define ROUND(a) ((int) a+0.5)
-void lineDDA(cairo_t *cr, int xA, int yA, int xB, int yB)
-{
-	int dX=xB-xA, dY=yB-yA,steps,k;
-	float xIncrement, yIncrement, x=xA, y=yA;
-	if(abs(dX) > abs(dY))
-		steps = abs(dX);
-	else
-		steps = abs(dY);
-	xIncrement = dX/(float)steps;
-	yIncrement = dY/(float)steps;
-	set_pixel(cr,ROUND(x),ROUND(y));
-	for(k=0;k<steps;k++)
-	{
-		x+=xIncrement;
-		y+=yIncrement;
-		set_pixel(cr,ROUND(x),ROUND(y));
-	}
-}
-void onDraw(cairo_t *cr)
-{
-	set_RGB(0,0,0);	//set color black
-	
-	lineDDA(cr,60,10,10,97);	//triangle straight
-	lineDDA(cr,10,97,110,97);
-	lineDDA(cr,110,97,60,10);
-	
-	lineDDA(cr,10,30,110,30); //triangle upside down
-	lineDDA(cr,10,30,60,117);
-	lineDDA(cr,60,117,110,30);
-	
-}
-
-int main(int argc, char **argv)
-{
-	setDraw(&onDraw);
-	window_set_width_height(120,127);
-	initWindow(argc,argv);
-	return 0;
-}
+void lineDDA(cairo_t *cr, int xA, int yA, int xB, int yB);
+#endif
