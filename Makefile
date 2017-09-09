@@ -1,4 +1,5 @@
 build:
+	mkdir -p out/
 	gcc  -I/usr/include/cairo/ `pkg-config --cflags gtk+-3.0` DrawingWindow.c LineDrawing.c TestDDA.c `pkg-config --libs gtk+-3.0` -o out/dda
 
 clean:
