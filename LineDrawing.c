@@ -22,7 +22,7 @@
 
 #include "DrawingWindow.h"
 #include "LineDrawing.h"
-#include <math.h>
+#include <stdlib.h>
 #define ROUND(a) ((int) a+0.5)
 void lineDDA(cairo_t *cr, int xA, int yA, int xB, int yB)
 {
